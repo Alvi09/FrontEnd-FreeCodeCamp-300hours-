@@ -1,3 +1,3 @@
 # FrontEnd-FreeCodeCamp-300hours-
 
-- FreeCodeCamp course projects and just wanted to put them just in case. 
+- Finished the FreeCodeCamp course and I just wanted to display the projects here!
