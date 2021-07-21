@@ -1,0 +1,393 @@
+/* 
+ * We're just trying to automate responsiveness 
+ * By using rem units, when we scale up or down the font-size, it'll affect all properties using rem units
+*/
+
+/* 1200px / 16px = 75em */
+@media (max-width: 75em) {
+  html {
+    font-size: 60%;
+  }
+}
+
+/* 980px / 16px = 61.25em */
+@media (max-width: 61.25em) {
+  html {
+    font-size: 58%;
+  }
+}
+
+/* 460px / 16px = 28.75em */
+@media (max-width: 28.75em) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Asterik means for all elements */
+* {
+  font-size: 1.35rem;
+  font-family: 'Zen Loop';  
+  scroll-behavior: smooth;
+}
+
+/* CSS Resets*/
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Nav Bar */
+nav {
+/*   background: #ADD8E6; */
+  background: white;
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  box-shadow: 0.1875rem 0.1875rem 0.1875rem rgba(173, 216, 230, 0.5);
+}
+
+nav > ul {
+  list-style-type: none;  
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.25rem;
+}
+  
+nav > ul > li {
+  margin: 0.6rem;
+}
+
+nav a {
+  width: 100%;
+  padding-right: 0.4rem;
+  text-decoration: none;
+  color: black;
+}
+
+nav a:hover{
+  font-weight: 1000;
+}
+
+.nav-link {
+  text-decoration: none;
+}
+
+.nav-link:target{
+    scroll-margin-top: 200px;
+}
+
+.span-clue {
+  font-style: italic;
+}
+
+/* Welcome section */
+.welcome-section {
+  margin-top: 69px;
+  background: #E6E6FA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+
+#welcome-section h1 {
+  text-align: center;
+}
+
+#welcome-text p {
+  text-align: center;
+  color: black;
+}
+
+.welcome-section img {
+  display: block;
+  width: auto;
+  height: auto;
+  margin: auto;
+  border-radius: 12px;
+}
+
+#hobbies h1 {
+  top: 12vh;
+  right: 1vw;
+  width: auto;
+  height: auto;
+  position: absolute;
+  font-size: 1.6rem;
+  box-shadow: 0px 1px 0px black;
+}
+
+#hobbies ul {
+  list-style-type: none;  
+  top: 23vh;
+  right: 10.3vh;
+  position: absolute;
+}
+
+#hobbies li {
+  font-size: 1.2rem;
+  padding: 4px;
+  white-space: pre;
+}
+
+#interests h1 {
+  top: 12vh;
+  left: 1vw;  
+  width: auto;
+  height: auto;
+  position: absolute;
+  font-size: 1.6rem;
+  box-shadow: 0px 1px 0px black;
+}
+
+#interests ul {
+  list-style-type: none;  
+  top: 23vh;
+  left: 1vh;
+  position: absolute;
+}
+
+#interests li {
+  font-size: 1.2rem;
+  padding: 4px;
+  white-space: pre;
+}
+
+/* Projects */
+.projects-section {
+  background: rgba(102,153,204, 0.5);
+  margin-top: -1.7rem;
+  text-align: center;
+}
+
+.projects-section-header {
+  padding-top: 4.6rem;
+  text-align: center;
+  border-bottom: 0.15rem double black;
+  max-width: 60rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2rem;
+  padding-bottom: 0.8rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-gap: 3rem;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto 4rem auto; 
+}
+
+.project-image {
+  height: 16rem;
+  width: 100%;
+  object-fit: fill;
+}
+
+.project-title {
+  margin: 0.7rem;
+  font-size: 1.3rem;
+  background: rgba(13, 13, 13, 0.9);
+  width: 100%;
+  height: auto;
+  margin: auto;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+}
+
+.project {
+  background: white;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+}
+
+#projects a {
+  text-decoration: none;
+  color: white;
+}
+
+.symbols {
+  visibility: hidden;
+  transition: color 0.34s ease-out;
+}
+
+.project:hover .symbols {
+  font-size: 1rem;
+  visibility: visible;
+  color: #DCAE96;
+}
+
+/* Two classes together in html */
+.btn {
+  background: rgba(13, 13, 13, 0.9);
+  padding: 0.3rem 0.8rem;
+  position: relative;
+  bottom: 1.5rem;
+  margin-bottom: 0.3rem;
+  display: inline-block;
+  transition: transform 0.3s ease-out;
+}
+
+.btn:hover span {
+  display: none;
+  transition: all 0.5s ease-in;
+}
+
+.btn:hover::before {
+  content: "\f09b  \f002";
+  font-family: FontAwesome;
+  padding-right: 0.5rem;
+  padding-left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.btn:hover {
+  transform: translateX(40px);
+}
+
+/* Contacts section */
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+  background: rgba(48, 56, 65, 1);
+}
+
+.contact-section-header h2 {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 0px;
+  color: #f0f0f0;
+}
+
+.contact-section-header p {
+  text-align: center;
+  padding: 0;
+  margin-top: 0px;
+  color: #f0f0f0;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.contact-links p {
+  font-size: 1.45rem;
+  display: inline;
+}
+
+.contact-details {
+  color: #f0f0f0;
+  font-size: 1.4rem;
+  margin-right: 1.2rem;
+  text-decoration: none;
+  transition: transform 0.3s ease-out;
+  text-shadow: 2px 2px 1px #1f1f1f;
+}
+
+.contact-details:hover {
+  transform: translateY(8px);
+}
+
+/* Footer */
+footer {
+  border-top: 4px solid rgba(102,153,204, 0.5);
+  background: rgba(48, 56, 65, 1);
+  display: flex;
+  justify-content: space-evenly;
+}
+
+footer p {
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  padding: auto;
+}
+
+footer a {
+  text-decoration: none;
+  color: #f0f0f0;
+}
+
+.footer-details {
+  transition: transform 0.3s ease-out;
+}
+
+.footer-details:hover{
+  transform: translateY(8px);
+}
+
+
+/* Media Queries */
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 1rem;
+  }
+  
+  #welcome-section img {
+    margin-top: 16vh;
+  }
+  
+  nav {
+    height: auto;
+  }
+  
+  #welcome-section {
+    margin: 0;
+    height: 110%;
+  }  
+}
+
+@media only screen and (max-width: 500px) {
+  /* Mobile devices like my iphone 11 (small)*/
+  #interests ul {
+    left: -2.5rem;
+  }
+  
+  #hobbies ul {
+    right: 2vh;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: center;
+  }
+  
+  nav ul {
+    margin-right: 3.05rem;
+  }
+  
+  #projects h1{
+    padding-top: 100rem;
+  }
+  
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .project-tile {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+  
+}
+
+
+
+
+
+
