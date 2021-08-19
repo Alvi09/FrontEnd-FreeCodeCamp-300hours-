@@ -54,7 +54,7 @@ function updateQuote_Author() {
   $("#author").animate({opacity: 0}, 450, function() {
     $(this).animate({opacity: 1}, 450);
       check_if_avail_auth(currQuote, currAuthor)
-  });
+    });
 
     if (currAuthor != null) {
       $("#tweet-quote").attr("href", encodeURI("http://www.twitter.com/intent/tweet?text=" + '"' + currQuote + '"' + " - " + currAuthor))
