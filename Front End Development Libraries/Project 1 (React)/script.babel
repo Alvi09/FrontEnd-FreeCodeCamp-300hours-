@@ -1,9 +1,11 @@
 
 import ReactDOM from "https://cdn.skypack.dev/react-dom"
-import React, {useState} from "https://cdn.skypack.dev/react"
+import React from "https://cdn.skypack.dev/react"
 
 // Can't believe it was 'const' the whole time (no wonder array wouldn't change :/ )
 var quotesArray;
+
+const colorsArr = ['4FC1FF', "E8B9AB", 'CB769E', '69995D', 'D2D7DF', '3AA7A3', 'ECA400', '006992', 'AFECE7', '81F499', '890620', 'B6465F', '8ACDEA']
 
 function fetch_and_return_data() {
   // Sets our quotesArray to the entire quotes (1000+) array via API 
@@ -22,8 +24,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quote: "hello",
-      author: "auth",
+      quote: "",
+      author: ""
     };
     
     /* Bind returns a new function, where .this refers to something. (i.e way of saving current value of .this)*/
@@ -33,6 +35,7 @@ class App extends React.Component {
   
   change_Quote_Author() {
     this.setState({
+      // If I change this to getRandomQuote(), then my quotesArray is undefined (????)
       quote: quotesArray[this.getRandomNumber()].text,
       author: quotesArray[this.getRandomNumber()].author,
     });
@@ -44,37 +47,40 @@ class App extends React.Component {
 
   render() {
     return(
-      <QuoteBox quote={this.state.quote} author={this.state.author} onClick={this.change_Quote_Author}/>
+      <QuoteBox quote={this.state.quote} 
+                author={this.state.author !== null ? this.state.author : "Unknown Author"} 
+                onClick={this.change_Quote_Author}
+      />
     );
   }
 }
 
-
 const QuoteBox = (props) => {
+  // All HTML stored here
   return (
     <div id="wrapper" class="container fluid">
-        <div id="quote-box">
+      <div id="quote-box">
 
-          {/* Quote text area */}
-          <div id="text">
-            <i class="fa fa-quote-left"> </i> <span id="span-text"> {props.quote} </span>
-          </div>
-
-         {/* Author display */}
-         <div id="author">- 
-           <span id="span-author"> {props.author}</span>
-         </div>
-
-          {/* Buttons (i.e twitter and new quote) */}
-          <div className = "buttons">
-            <a class="button btn btn-primary" id="tweet-quote" target="_top" title="Tweet this quote!"><i class="fa fa-twitter"></i> Tweet </a>
-
-            <button class="button btn btn-primary" id="new-quote" onClick={props.onClick}>
-                New quote
-              </button>
-          </div>
+        {/* Quote text area */}
+        <div id="text">
+          <i class="fa fa-quote-left"> </i> <span id="span-text"> {props.quote} </span>
         </div>
-      </div>
+
+        {/* Author display */}
+        <div id="author">- 
+          <span id="span-author"> {props.author}</span>
+        </div>
+
+        {/* Buttons (i.e twitter and new quote) */}
+        <div className = "buttons">
+          <a class="button btn btn-primary" id="tweet-quote" target="_top" title="Tweet this quote!"><i class="fa fa-twitter"></i> Tweet </a>
+
+          <button class="button btn btn-primary" id="new-quote" onClick={props.onClick}>
+            New quote 
+          </button>
+         </div>
+       </div>
+     </div>
   );
 };
 
