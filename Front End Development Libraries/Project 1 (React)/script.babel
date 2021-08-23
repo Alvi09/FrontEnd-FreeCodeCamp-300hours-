@@ -2,28 +2,46 @@
 import ReactDOM from "https://cdn.skypack.dev/react-dom"
 import React, {useState} from "https://cdn.skypack.dev/react"
 
-let quotesArray;
-// const quotesArray = [{quote: "A", author: "-A:"}, {quote: "B", author: "-B"}];
+// Can't believe it was 'const' the whole time (no wonder array wouldn't change :/ )
+var quotesArray;
+
+function fetch_and_return_data() {
+  // Sets our quotesArray to the entire quotes (1000+) array via API 
+  fetch("https://type.fit/api/quotes")
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(parsed_JSON_Data) {
+      quotesArray = parsed_JSON_Data;
+    })
+};  
+
+fetch_and_return_data();
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       quote: "hello",
-      author: "-auth",
+      author: "auth",
     };
     
     /* Bind returns a new function, where .this refers to something. (i.e way of saving current value of .this)*/
     this.change_Quote_Author = this.change_Quote_Author.bind(this);
+    this.getRandomNumber = this.getRandomNumber.bind(this);
   }
   
   change_Quote_Author() {
     this.setState({
-      quote: getRandomNumber().quote,
-      author: getRandomNumber().author,
+      quote: quotesArray[this.getRandomNumber()].text,
+      author: quotesArray[this.getRandomNumber()].author,
     });
   }
   
+  getRandomNumber() {
+    return (Math.floor(Math.random() * quotesArray.length))
+    };
+
   render() {
     return(
       <QuoteBox quote={this.state.quote} author={this.state.author} onClick={this.change_Quote_Author}/>
@@ -31,23 +49,6 @@ class App extends React.Component {
   }
 }
 
-function fetch_and_return_data () {
-  fetch("https://type.fit/api/quotes")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(parsed_JSON_Data) {
-      quotesArray = parsed_JSON_Data
-      return parsed_JSON_Data;
-    });
-}
-
-function getRandomNumber() {
-  fetch_and_return_data();
-  return quotesArray[Math.floor(Math.random() * quotesArray.length)];
-}
-
-console.log(getRandomNumber());
 
 const QuoteBox = (props) => {
   return (
@@ -56,12 +57,12 @@ const QuoteBox = (props) => {
 
           {/* Quote text area */}
           <div id="text">
-            <i class="fa fa-quote-left"> </i> <span id="span-text"> {props.quote} {props.author} </span>
+            <i class="fa fa-quote-left"> </i> <span id="span-text"> {props.quote} </span>
           </div>
 
          {/* Author display */}
          <div id="author">- 
-           <span id="span-author"> </span>
+           <span id="span-author"> {props.author}</span>
          </div>
 
           {/* Buttons (i.e twitter and new quote) */}
