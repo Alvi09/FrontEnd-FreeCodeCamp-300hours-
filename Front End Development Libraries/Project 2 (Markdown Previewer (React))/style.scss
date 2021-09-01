@@ -1,0 +1,86 @@
+// Click gear icon and use SCSS to use SASS stuff (i.e variables with $var)
+
+$background-color: #619e9e;
+$editor-color: #224b4b;
+$textarea-color: #2cda9d;
+
+$box-shadow: 0 0 4px black;
+
+$width_and_max_width_editor: 550px;
+$width_and_max_width_preview: 800px;
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.8rem;
+  background-color: lighten($background-color, 10%); 
+}
+
+.editor-wrapper {
+  max-width: $width_and_max_width_editor;
+  width: $width_and_max_width_editor;
+  margin: 2rem auto;
+}
+
+.editor-title {
+  max-width: $width_and_max_width_editor;
+  width: $width_and_max_width_editor;
+  border: 1px black solid;
+  border-bottom: 0px black none;
+  padding: 0.4rem 0rem 0.4rem 1rem;
+  background-color: lighten($editor-color, 26%);
+  font-weight: bold;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  box-shadow: $box-shadow; 
+}
+
+#editor {
+  resize: none;
+  max-width: $width_and_max_width_editor;
+  width: $width_and_max_width_editor;
+  padding: 0.4rem 0.8rem 0.4rem 0.8rem;
+  background-color: lighten($textarea-color, 40%);
+  border-top: 0px black none;
+  font-size: 1.4rem;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  box-shadow: $box-shadow;
+  height: 150px;
+}
+
+#editor:focus {
+  outline: none;
+}
+
+.preview-wrapper {
+  @extend .editor-wrapper;
+  max-width: $width_and_max_width_preview;
+  width: $width_and_max_width_preview;
+  margin-top: 0 auto;
+}
+
+.preview-title {
+  @extend .editor-title;
+  max-width: $width_and_max_width_preview;
+  width: $width_and_max_width_preview;
+}
+
+// Font awesome icons modification don't include the "fas" in "fas fa-glasses"
+.fa-glasses {
+    background-color: lighten($editor-color, 26%);
+}
+
+.fa-question-circle {
+  @extend .fa-glasses
+}
+
+
+#preview {
+  @extend #editor;
+  max-width: $width_and_max_width_preview;
+  width: $width_and_max_width_preview;
+  word-wrap: break-all;
+  height: 220px;
+  white-space: break-line;
+}
+
