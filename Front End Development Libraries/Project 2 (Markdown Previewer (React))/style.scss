@@ -81,6 +81,34 @@ $width_and_max_width_preview: 800px;
   width: $width_and_max_width_preview;
   word-wrap: break-all;
   height: 220px;
-  white-space: break-line;
+  white-space: pre-wrap;
+  overflow: auto;
 }
+
+// Takes care of the background of each tag being the wrong color bc of the $background-color
+#preview h1, h2, ul, li, p, blockquote, img, strong, {
+  margin: 0;
+  background-color: lighten($textarea-color, 40%);
+}
+
+#preview h1 {
+  border-bottom: 2px solid black;
+}
+
+#preview h2 {
+  border-bottom: 1px solid black;
+}
+
+#preview blockquote {
+  margin-left: 20px;
+  padding-left: 10px;
+  border-left: 3px solid black;
+  
+}
+
+#preview img {
+  width: 10vw;
+  height: 30vh;
+}
+
 
