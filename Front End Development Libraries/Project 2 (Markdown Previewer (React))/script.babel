@@ -1,7 +1,7 @@
 import ReactDOM from "https://cdn.skypack.dev/react-dom"
 import React from "https://cdn.skypack.dev/react"
 
-const placeholder = `Welcome to markdown previewer! 
+const placeholder = `Welcome to my markdown previewer! 
 
 A markdown previewer allows you format headers onto plain text (like Github's readme file)
   
@@ -13,7 +13,7 @@ A markdown previewer allows you format headers onto plain text (like Github's re
   
   Inline code \`<div></div>\`
   
-  Code block
+  Code block:
   \`\`\`
   function foo(a, b) {
     return a + b;
@@ -31,14 +31,13 @@ A markdown previewer allows you format headers onto plain text (like Github's re
   **Bolded text**
   
   Code: <pre><code> let x = 5; </code></pre>
-
 `
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      input_text: placeholder
+      input_text: placeholder,
     };
     
   // Bind stuff here if needed  
@@ -74,7 +73,7 @@ const Editor = (props) => {
     <div className="row">
       <div className="editor-wrapper">
         <div className="editor-title"> 
-          <i class="fas fa-glasses"></i> Editor 
+          <i class="fas fa-glasses"></i> Editor
         </div>
        
         <textarea 
