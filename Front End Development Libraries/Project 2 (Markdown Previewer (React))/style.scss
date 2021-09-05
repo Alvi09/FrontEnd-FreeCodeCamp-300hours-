@@ -14,9 +14,11 @@ $width_and_max_width_preview: 800px;
   padding: 0;
   list-style: none;
   font-size: 1.8rem;
+  color: black;
   background-color: lighten($background-color, 10%); 
 }
 
+// Editor container
 .editor-wrapper {
   max-width: $width_and_max_width_editor;
   width: $width_and_max_width_editor;
@@ -52,6 +54,27 @@ $width_and_max_width_preview: 800px;
   outline: none;
 }
 
+// Font awesome icons modification don't include the "fas" in "fas fa-glasses"
+.fa-glasses {
+    background-color: lighten($editor-color, 26%);
+}
+
+.fa-question-circle {
+  @extend .fa-glasses;
+}
+
+
+// Preview container
+#preview {
+  @extend #editor;
+  max-width: $width_and_max_width_preview;
+  width: $width_and_max_width_preview;
+  word-wrap: break-all;
+  height: 220px;
+  white-space: pre-wrap;
+  overflow: auto;
+}
+
 .preview-wrapper {
   @extend .editor-wrapper;
   max-width: $width_and_max_width_preview;
@@ -63,26 +86,6 @@ $width_and_max_width_preview: 800px;
   @extend .editor-title;
   max-width: $width_and_max_width_preview;
   width: $width_and_max_width_preview;
-}
-
-// Font awesome icons modification don't include the "fas" in "fas fa-glasses"
-.fa-glasses {
-    background-color: lighten($editor-color, 26%);
-}
-
-.fa-question-circle {
-  @extend .fa-glasses
-}
-
-
-#preview {
-  @extend #editor;
-  max-width: $width_and_max_width_preview;
-  width: $width_and_max_width_preview;
-  word-wrap: break-all;
-  height: 220px;
-  white-space: pre-wrap;
-  overflow: auto;
 }
 
 // Takes care of the background of each tag being the wrong color bc of the $background-color
@@ -103,12 +106,10 @@ $width_and_max_width_preview: 800px;
   margin-left: 20px;
   padding-left: 10px;
   border-left: 3px solid black;
-  
 }
 
 #preview img {
   width: 10vw;
   height: 30vh;
 }
-
 
