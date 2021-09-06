@@ -113,3 +113,27 @@ $width_and_max_width_preview: 800px;
   height: 30vh;
 }
 
+// Iphone 5 / SE
+@media (max-width: 568px) {
+
+  .editor-wrapper {
+    margin: 20px 20px 20px 20px;
+    width: 450px;
+    max-width: 450px;
+    
+  }
+  .editor-title {
+   width: 450px;
+   max-width: 450px;
+  }
+  
+  #editor {
+    width: 450px;
+    max-width: 450px;
+    height: 500px;
+  }
+  #preview img {
+    width: 100px;
+    height: 100px;
+  }
+}
